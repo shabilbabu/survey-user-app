@@ -49,7 +49,7 @@ class IntroductionScreen extends StatelessWidget {
                     dotWidth: 20,
                     dotHeight: 12,
                     dotColor: HexColor("#E3E3E3"),
-                    activeDotColor: HexColor('#34444C'),
+                    activeDotColor: Colors.orange,
                   ),
                   controller: Provider.of<IntroductionController>(context,
                           listen: false)
@@ -65,10 +65,10 @@ class IntroductionScreen extends StatelessWidget {
                           height: 40.h,
                           width: 120.h,
                           decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(5)
+                            color: Colors.orange,
+                            borderRadius: BorderRadius.circular(10)
                           ),
-                          child:   Center(child: Text('Get started',style: GoogleFonts.kanit(color: Colors.white,))),
+                          child:   Center(child: Text('Get started',style: GoogleFonts.kanit(color: Colors.white,fontSize: 16))),
                         )
                       )
                     : GestureDetector(

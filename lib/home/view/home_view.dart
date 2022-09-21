@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:pizza_hut/Questions_screen/view/question_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -10,18 +11,10 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: HexColor('#152238'),
         body: Stack(
           children: [
-            Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.black,
-              child: Image(
-                image: const AssetImage('assets/Psychedelic Swirls.jpeg'),
-                fit: BoxFit.cover,
-                height: 600.h,
-              ),
-            ),
+
             Align(
               alignment: Alignment.center,
               child: Container(
@@ -40,7 +33,7 @@ class HomeView extends StatelessWidget {
                   height: 220.h,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.circular(20)),
                   child: Padding(
                     padding:
@@ -54,20 +47,23 @@ class HomeView extends StatelessWidget {
                         SizedBox(
                           height: 30.h,
                         ),
-                        Container(
-                          height: 60,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                              color: HexColor('#76C3CA'),
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Center(
-                              child: Text(
-                            'Start',
-                            style: GoogleFonts.kanit(
-                              fontSize: 20,
-                              color: Colors.white,
-                            ),
-                          )),
+                        GestureDetector(
+                          onTap:() =>  Navigator.of(context).push(MaterialPageRoute(builder: (context) => QuestionView())),
+                          child: Container(
+                            height: 60,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                                color: HexColor('#152238'),
+                                borderRadius: BorderRadius.circular(20)),
+                            child: Center(
+                                child: Text(
+                              'Start',
+                              style: GoogleFonts.kanit(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            )),
+                          ),
                         )
                       ],
                     ),

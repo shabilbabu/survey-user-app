@@ -11,6 +11,7 @@ class FirstScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: HexColor('#152238'),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -20,10 +21,11 @@ class FirstScreen extends StatelessWidget {
                     height: 200.h,
                     width: MediaQuery.of(context).size.width,
                     decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/Psychedelic Swirls.jpeg'),
-                        fit: BoxFit.cover,
-                      ),
+                      // image: DecorationImage(
+                      //   image: AssetImage('assets/Psychedelic Swirls.jpeg'),
+                      //   fit: BoxFit.cover,
+                      // ),
+                      color: Colors.orange
                     ),
                   ),
                   Padding(
@@ -64,11 +66,10 @@ class FirstScreen extends StatelessWidget {
                 height: 500,
                 child: ListView.separated(
                   separatorBuilder: (context, index) => const SizedBox(
-                    
                     height: 8,
                   ),
                   shrinkWrap: true,
-                  
+                  physics: const BouncingScrollPhysics(),
                   itemCount: 10,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
@@ -85,24 +86,26 @@ class FirstScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                                color: HexColor('#76C3CA'), width: 1),
+                                color: Colors.white, width: 1),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
+                                Text((index+1).toString(),style: GoogleFonts.kanit(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                  ),),
+                                  SizedBox(width: 130.w,),
                                 Text(
                                   'Food',
                                   style: GoogleFonts.kanit(
                                     fontSize: 20,
-                                    color: Colors.black,
+                                    color: Colors.white,
                                   ),
                                 ),
-                                Icon(
-                                  Icons.check_circle,
-                                  color: HexColor('#76C3CA'),
-                                ),
+                                
                               ],
                             ),
                           ),

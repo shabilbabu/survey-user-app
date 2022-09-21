@@ -7,22 +7,19 @@ class CustomTextField extends StatelessWidget {
   final IconData icon;
   final bool val;
   final FormFieldValidator<String>? validator;
-  final  ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onChanged;
   final String? hinttext;
-  
 
   const CustomTextField({
     Key? key,
     this.val = false,
     required this.icon,
     required this.type,
-     this.controller,
+    this.controller,
     this.labeltext,
-     this.validator,
+    this.validator,
     this.hinttext,
     this.onChanged,
-    
-   
   }) : super(key: key);
 
   @override
@@ -32,24 +29,31 @@ class CustomTextField extends StatelessWidget {
       
       autofocus: false,
       decoration: InputDecoration(
+        errorStyle: const TextStyle(
+          
+      color: Colors.white,
+      fontSize: 13,
+    ),
         hintText: hinttext,
-       
-        
-          prefixIcon: Icon(icon),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-          labelText: labeltext),
+        prefixIcon: Icon(icon,color: Colors.orange,),
+        fillColor: Colors.white,
+        filled: true,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide.none,
+        ),
+      ),
       keyboardType: type,
+      
       obscureText: val,
       textInputAction: TextInputAction.next,
-      
+
       // onSaved: (value) {
       //   controller.text = value!;
       // },
       validator: validator,
       onChanged: onChanged,
 
-      
-      
       autovalidateMode: AutovalidateMode.onUserInteraction,
     );
   }

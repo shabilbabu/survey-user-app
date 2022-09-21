@@ -1,7 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pizza_hut/Questions_screen/provider/question_view_provider.dart';
+import 'package:pizza_hut/auth/sign_in/provider/sign_in_provider.dart';
+import 'package:pizza_hut/auth/sign_in/view/signin_view.dart';
 import 'package:pizza_hut/auth/sign_up/provider/sign_up_provider.dart';
+import 'package:pizza_hut/auth/sign_up/view/sign_up.dart';
+import 'package:pizza_hut/first_screen/view/first_screen_view.dart';
+import 'package:pizza_hut/home/view/home_view.dart';
 import 'package:pizza_hut/intro/view/intro_main.dart';
 import 'package:provider/provider.dart';
 
@@ -30,10 +36,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => SignUpProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => SignInProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => QuestionViewProvider(),
+        ),
       ],
             child: const MaterialApp(
               debugShowCheckedModeBanner: false,
-              home: IntroductionScreen(),
+              home: SignInView(),
             ),
           ),
         );
